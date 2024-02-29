@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #656774;
+  background-color: #f5f9fe;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section-title {
+  margin-bottom: 70px;
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1d365e;
+  letter-spacing: 0.015rem;
+}
+
+body {
+  background-image: url(./../../../assets/img/backgroundphone.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.selectPage .store, .selectPage .admin {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.selectPage .store a, .selectPage .admin a {
+  text-decoration: none;
+  text-align: center;
+  transition: 0.5s;
+}
+.selectPage .store a h2, .selectPage .admin a h2 {
+  padding: 10px 0;
+  color: #c9d8f4;
+  font-weight: 600;
+  background-color: black;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.selectPage .store a:hover h2, .selectPage .admin a:hover h2 {
+  transform: translateY(15px);
+  transition: 0.5s;
+}
+.selectPage .store a:hover img, .selectPage .admin a:hover img {
+  transform: scale(1.1);
+}
+.selectPage .store img, .selectPage .admin img {
+  width: 250px;
+  padding: 30px;
+  border: 5px solid black;
+  border-radius: 20px;
+  background-color: #c9d8f4;
+  transition: 0.5s;
+}/*# sourceMappingURL=main.css.map */
