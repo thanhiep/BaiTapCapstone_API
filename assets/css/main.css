@@ -38,6 +38,14 @@ body {
   align-items: center;
   justify-content: center;
 }
+.selectPage .store img, .selectPage .admin img {
+  width: 250px;
+  padding: 30px;
+  border: 5px solid black;
+  border-radius: 20px;
+  background-color: #c9d8f4;
+  transition: 0.5s;
+}
 .selectPage .store a, .selectPage .admin a {
   text-decoration: none;
   text-align: center;
@@ -58,11 +66,8 @@ body {
 .selectPage .store a:hover img, .selectPage .admin a:hover img {
   transform: scale(1.1);
 }
-.selectPage .store img, .selectPage .admin img {
-  width: 250px;
-  padding: 30px;
-  border: 5px solid black;
-  border-radius: 20px;
-  background-color: #c9d8f4;
-  transition: 0.5s;
+@media screen and (max-width: 767.98px) {
+  .selectPage .store, .selectPage .admin {
+    height: 50vh;
+  }
 }/*# sourceMappingURL=main.css.map */
