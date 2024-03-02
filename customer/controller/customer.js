@@ -7,32 +7,12 @@ function getEle(id) {
 /**
  * get list product
  */
+
 function getListProduct() {
-   
-    const promise = api.fetchData();
-    getEle("loader").style.display = "block";
-    promise
-        .then(function (result) {
-            const data = result.data;
-            renderUI(data);
-            getEle("loader").style.display = "none";
-        })
-        .catch(function (error) {
-            console.log(error)
-        })
-}
-getListProduct()
-
-
-/**
- * Choose type
- */
-function chooseType() {
     const type = getEle("inputType").value;
-    let listProduct = [];
-    let iphone = [];
+    let apple = [];
     let samsung = [];
-    
+
     const promise = api.fetchData();
     getEle("loader").style.display = "block";
     promise
@@ -40,19 +20,18 @@ function chooseType() {
             const data = result.data;
             getEle("loader").style.display = "none";
 
-            listProduct = data;
-            for (i = 0; i < listProduct.length; i++) {
-                const product = listProduct[i]
+            for (i = 0; i < data.length; i++) {
+                const product = data[i]
                 if (product.type == "iphone") {
-                    iphone.push(product)
+                    apple.push(product)
                 } else if (product.type == "Samsung") {
                     samsung.push(product)
                 }
             }
 
             switch (type) {
-                case "iPhone":
-                    renderUI(iphone);
+                case "Apple":
+                    renderUI(apple);
                     break;
 
                 case "Samsung":
@@ -69,7 +48,7 @@ function chooseType() {
         })
 }
 
-
+getListProduct()
 
 
 
