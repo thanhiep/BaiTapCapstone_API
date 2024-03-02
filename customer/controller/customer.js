@@ -13,8 +13,9 @@ function getListProduct() {
     let apple = [];
     let samsung = [];
 
-    const promise = api.fetchData();
     getEle("loader").style.display = "block";
+
+    const promise = api.fetchData();
     promise
         .then(function (result) {
             const data = result.data;
