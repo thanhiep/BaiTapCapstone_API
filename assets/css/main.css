@@ -76,7 +76,7 @@ header {
   box-shadow: 0 2px 4px #1d365e;
   position: fixed;
   width: 100%;
-  z-index: 10;
+  z-index: 100;
 }
 header .navbar-brand {
   font-size: 1.8rem;
@@ -158,6 +158,52 @@ header #phoneNavbar .btnCart {
   font-size: 1.8rem;
   font-weight: 600;
   color: #212121;
+}
+
+@media screen and (max-width: 1199.98px) {
+  .myCarousel #phoneCarousel .carousel-caption h5 {
+    font-size: 44px;
+  }
+  .myCarousel #phoneCarousel .carousel-caption p {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .myCarousel #phoneCarousel img {
+    width: 100%;
+  }
+  .myCarousel #phoneCarousel .carousel-caption {
+    top: 30% !important;
+  }
+  .myCarousel #phoneCarousel .carousel-caption h5 {
+    font-size: 24px;
+  }
+  .myCarousel #phoneCarousel .carousel-caption p {
+    font-size: 14px;
+  }
+  .myCarousel #phoneCarousel .carousel-caption .btnInfo {
+    margin-bottom: 8px;
+    transform: scale(0.8);
+  }
+  .myCarousel #phoneCarousel .carousel-caption .btnBuy {
+    transform: scale(0.8);
+  }
+}
+.footerPhone {
+  padding: 60px 0;
+  background-color: #2a73dd;
+  color: #f5f9fe;
+}
+.footerPhone .nav-link {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #f5f9fe;
+  margin-left: 13px;
+  transition: 0.2s;
+}
+.footerPhone .nav-link:hover {
+  transform: scale(1.3);
+  color: #f9d412;
 }
 
 #btnCart {
@@ -253,4 +299,22 @@ header #phoneNavbar .btnCart {
 }
 .cardPhone .cardPhone__rating {
   color: #f9d412;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=main.css.map */

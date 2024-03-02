@@ -3,7 +3,7 @@ header {
     box-shadow: 0 2px 4px $color-blue-1;
     position: fixed;
     width: 100%;
-    z-index: 10;
+    z-index: 100;
     .navbar-brand {
         @include styleText($fs-3, $fw-3, $color-white-3);
     }
