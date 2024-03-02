@@ -8,10 +8,7 @@ function getEle(id) {
  * get list product
  */
 function getListProduct() {
-    let listProduct = [];
-    let iphone = [];
-    let samsung = [];
-
+   
     const promise = api.fetchData();
     getEle("loader").style.display = "block";
     promise
@@ -19,16 +16,6 @@ function getListProduct() {
             const data = result.data;
             renderUI(data);
             getEle("loader").style.display = "none";
-
-            listProduct = data;
-            for (i = 0; i < listProduct.length; i++) {
-                const product = listProduct[i]
-                if (product.type == "iphone") {
-                    iphone.push(product)
-                } else if (product.type == "Samsung") {
-                    samsung.push(product)
-                }
-            }
         })
         .catch(function (error) {
             console.log(error)
@@ -45,7 +32,7 @@ function chooseType() {
     let listProduct = [];
     let iphone = [];
     let samsung = [];
-
+    
     const promise = api.fetchData();
     getEle("loader").style.display = "block";
     promise

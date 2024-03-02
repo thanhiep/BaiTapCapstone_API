@@ -63,7 +63,8 @@
                     <div class="carousel-item active">
                         <div class="row">
                             <div class="col-6">
-                                <img src="https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg" alt="...">
+                                <img src="https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg"
+                                    alt="...">
                             </div>
                             <div class="col-6 d-flex align-items-center">
                                 <div class="carousel-caption">
@@ -84,7 +85,8 @@
                     <div class="carousel-item">
                         <div class="row">
                             <div class="col-6">
-                                <img src="https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-trang-new-600x600-600x600.jpg" alt="...">
+                                <img src="https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-trang-new-600x600-600x600.jpg"
+                                    alt="...">
                             </div>
                             <div class="col-6 d-flex align-items-center">
                                 <div class="carousel-caption">
@@ -110,24 +112,30 @@
     <!-- PRODUCTS -->
     <section class="products container section" id="phoneProducts">
         <h2 class="section-title">-Featured Products-</h2>
+        <!-- Search type -->
         <div class="input-group pb-5 w-50">
             <select class="custom-select" id="inputType" aria-label="Example select with button addon">
-              <option value="All Brands">All Brands</option>
-              <option value="iPhone">iPhone</option>
-              <option value="Samsung">Samsung</option>
+                <option value="All Brands">All Brands</option>
+                <option value="iPhone">iPhone</option>
+                <option value="Samsung">Samsung</option>
             </select>
             <div class="input-group-append">
-              <button onclick="chooseType()" class="btn btn-info" type="button">Search</button>
+                <button onclick="chooseType()" class="btn btn-info" type="button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
             </div>
-          </div>
+        </div>
+
+        <!-- Show products -->
         <div class="loader mx-auto" style="display: none" id="loader"></div>
         <div class="productsContent">
             <div class="row" id="showProduct">
-            
+
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footerPhone">
         <div class="container">
             <div class="row align-items-center">
@@ -170,7 +178,9 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <!-- AXIOS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js" integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"
+        integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="./../../admin/model/product.js"></script>
     <script src="./../../admin/services/api.js"></script>
