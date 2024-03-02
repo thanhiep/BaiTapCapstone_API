@@ -1,0 +1,22 @@
+.myCarousel {
+    padding: $pd-2 0;
+    background-color: white;
+    #phoneCarousel {
+        img{
+            width: 100%;
+        }
+        .carousel-caption {
+            color: $color-dark-2;
+            justify-content: center;
+            top: 50% !important;
+            transform: translateY(-50%);
+            h5 {
+                @include styleText($fs-4, $fw-3, $color-blue-2);
+            }
+            p{
+                @include styleText($fs-3,$fw-2,$color-dark-4)
+            }
+        }
+
+    }
+}

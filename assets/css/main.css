@@ -25,7 +25,7 @@ html, body {
   letter-spacing: 0.015rem;
 }
 
-body {
+.indexBody {
   background-image: url(./../../../assets/img/backgroundphone.jpg);
   background-position: center;
   background-size: cover;
@@ -70,4 +70,187 @@ body {
   .selectPage .store, .selectPage .admin {
     height: 50vh;
   }
+}
+header {
+  background-color: #2a73dd;
+  box-shadow: 0 2px 4px #1d365e;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+header .navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+header .navbar-toggler-icon {
+  font-size: 1.6rem;
+  line-height: 1.5em;
+  color: #1d365e;
+}
+header #phoneNavbar .nav-link {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  padding: 25px;
+  transition: 0.2s;
+}
+header #phoneNavbar .nav-link::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  display: block;
+  background-color: #f9d412;
+  transition: 0.2s;
+}
+header #phoneNavbar .nav-link:hover {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f9d412;
+}
+header #phoneNavbar .nav-link:hover::after {
+  width: 100%;
+}
+header #phoneNavbar .active .nav-link {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f9d412;
+}
+header #phoneNavbar .active .nav-link::after {
+  width: 100%;
+}
+header #phoneNavbar .btnCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 991.98px) {
+  header #phoneNavbar .nav-link {
+    text-align: center;
+  }
+  header #phoneNavbar .nav-link:hover::after {
+    width: 0;
+  }
+  header #phoneNavbar .active .nav-link::after {
+    width: 0;
+  }
+}
+.myCarousel {
+  padding: 225px 0;
+  background-color: white;
+}
+.myCarousel #phoneCarousel img {
+  width: 100%;
+}
+.myCarousel #phoneCarousel .carousel-caption {
+  color: #121212;
+  justify-content: center;
+  top: 50% !important;
+  transform: translateY(-50%);
+}
+.myCarousel #phoneCarousel .carousel-caption h5 {
+  font-size: 70px;
+  font-weight: 700;
+  color: #2a73dd;
+}
+.myCarousel #phoneCarousel .carousel-caption p {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #212121;
+}
+
+#btnCart {
+  font-size: 1.8rem;
+  padding: 10px;
+  color: #fff;
+  background-color: #2a73dd;
+  border: transparent;
+  transition: 0.2s;
+}
+#btnCart:hover {
+  color: #f9d412;
+}
+
+.btnInfo {
+  background-color: #2a73dd;
+  padding: 13.5px 44px;
+  border: 2px solid #2a73dd;
+  border-radius: 8px;
+  letter-spacing: 0.03rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f5f9fe;
+  box-shadow: 0 3px 6px #c9d8f4;
+  transition: 0.5s;
+}
+.btnInfo:hover {
+  background: #f5f9fe;
+  border-color: #2a73dd;
+  color: #2a73dd;
+}
+
+.btnBuy {
+  background-color: transparent;
+  padding: 13.5px 44px;
+  border: 2px solid #2a73dd;
+  border-radius: 8px;
+  letter-spacing: 0.03rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2a73dd;
+  box-shadow: 0 3px 6px #c9d8f4;
+  transition: 0.5s;
+}
+.btnBuy:hover {
+  background: #2a73dd;
+  border-color: #2a73dd;
+  color: #fff;
+}
+
+.btnAddToCart {
+  background-color: #2196f3;
+  padding: 0 0;
+  border: 2px solid #2196f3;
+  border-radius: 8px;
+  letter-spacing: 0.015rem;
+  color: #fff;
+  font-size: 1.8rem;
+  transition: 0.2s;
+}
+.btnAddToCart i {
+  display: inline-block;
+  padding: 13px;
+}
+.btnAddToCart:hover {
+  background: #fff;
+  border-color: #2196f3;
+  color: #2196f3;
+}
+
+.cardPhone {
+  box-shadow: 6px 6px 12px #e2ebfc, -6px -6px 12px #fff;
+  background-color: #f5f9fe;
+  border: none;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+.cardPhone img {
+  box-shadow: 6px 6px 12px #e2ebfc, -6px -6px 12px #fff;
+  border-radius: 12px;
+  transform: scale(0.9);
+}
+.cardPhone .cardPhone__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2a73dd;
+}
+.cardPhone .cardPhone__text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1d365e;
+}
+.cardPhone .cardPhone__rating {
+  color: #f9d412;
 }/*# sourceMappingURL=main.css.map */
