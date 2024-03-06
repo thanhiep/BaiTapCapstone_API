@@ -143,12 +143,11 @@ function addCartItem(id) {
 
             // Tính tổng giá tiền
             let total = 0;
-            cart.forEach(function(item){
-                total += item.price * item.quantity;
-            })
+            total = gioHang.totalPrice(cart,total);
 
             // set local storage cho cart
             setLocalStorage(cart,"CartItem");
+            setLocalStorage(total,"total")
 
             // hiển thị UI
             getEle("totalPrice").innerHTML = `$${total}`;
@@ -159,8 +158,18 @@ function addCartItem(id) {
         })
 }
 
+// lấy cart từ local storage
 cart = getLocalStorage("CartItem");
 renderCartUI(cart);
+
+// hiển thị giá total từ cart
+function renderTotalPrice(){
+    let total = 0;
+    total = gioHang.totalPrice(cart,total);
+    getEle("totalPrice").innerHTML = `$${total}`;
+}
+renderTotalPrice();
+
 
 /**
  * render UI cart

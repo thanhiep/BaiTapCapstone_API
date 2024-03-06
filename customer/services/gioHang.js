@@ -21,5 +21,13 @@ function Cart(){
         return cart;
     };
 
+    // tính tổng tiền
+    this.totalPrice = function(cart,total){
+        cart.forEach(function(item){
+            total += item.price * item.quantity;
+        })
+        return total;
+    }
+
 
 }
