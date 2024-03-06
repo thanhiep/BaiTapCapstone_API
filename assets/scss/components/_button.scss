@@ -5,6 +5,7 @@
     background-color: $color-blue-2;
     border: transparent;
     transition: 0.2s;
+    position: relative;
 
     &:hover {
         color: $color-yellow-1;
@@ -63,5 +64,12 @@
 
     &:hover{
         @include styleButtonHover($color-blue-2,$color-white-1,$color-white-1);
+    }
+}
+
+#btnDeleteItem{
+    border-radius: 50%;
+    &:hover{
+        @include styleButtonHover(white,red,red);
     }
 }
