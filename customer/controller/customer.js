@@ -183,11 +183,11 @@ function renderCartUI(cart) {
                 <td> <img src="${item.img} "alt="..." width="30"></td>
                 <td>$${item.price}</td>
                 <td>
-                    <button onclick="giamSL(${item.id})" class="btnCartItem" type="button">
+                    <button onclick="giamSL(${index})" class="btnCartItem" type="button">
                         <i class="fa-solid fa-minus"></i>
                     </button>
                     <span>${item.quantity}</span>
-                    <button onclick="tangSL(${item.id})" class="btnCartItem" type="button">
+                    <button onclick="tangSL(${index})" class="btnCartItem" type="button">
                         <i class="fa-solid fa-plus"></i>
                     </button>
                 </td>
@@ -200,12 +200,13 @@ function renderCartUI(cart) {
 /**
  * giảm số lượng item
  */
-function giamSL(id){
+function giamSL(index){
     for(let i = 0; i < cart.length; i++){
         const item = cart[i];
-        if(item.id == id){
+        if(i == index && item.quantity > 1){
             item.quantity--;
-            break;
+        } else if (i == index && item.quantity == 1){
+            cart.splice(index,1)
         }
     }
 
@@ -217,10 +218,10 @@ function giamSL(id){
 /**
  * tăng số lượng item
  */
-function tangSL(id){
+function tangSL(index){
     for(let i = 0; i < cart.length; i++){
         const item = cart[i];
-        if(item.id == id){
+        if(i == index){
             item.quantity++;
             break;
         }
