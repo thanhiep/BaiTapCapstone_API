@@ -183,11 +183,11 @@ function renderCartUI(cart) {
                 <td> <img src="${item.img} "alt="..." width="30"></td>
                 <td>$${item.price}</td>
                 <td>
-                    <button class="btnCartItem" type="button">
+                    <button onclick="giamSL(${item.id})" class="btnCartItem" type="button">
                         <i class="fa-solid fa-minus"></i>
                     </button>
                     <span>${item.quantity}</span>
-                    <button class="btnCartItem" type="button">
+                    <button onclick="tangSL(${item.id})" class="btnCartItem" type="button">
                         <i class="fa-solid fa-plus"></i>
                     </button>
                 </td>
@@ -195,4 +195,38 @@ function renderCartUI(cart) {
         `
     })
     getEle("tblCartBody").innerHTML = content;
+}
+
+/**
+ * giảm số lượng item
+ */
+function giamSL(id){
+    for(let i = 0; i < cart.length; i++){
+        const item = cart[i];
+        if(item.id == id){
+            item.quantity--;
+            break;
+        }
+    }
+
+    renderCartUI(cart);
+    setLocalStorage(cart,"CartItem");
+    renderTotalPrice();;
+}
+
+/**
+ * tăng số lượng item
+ */
+function tangSL(id){
+    for(let i = 0; i < cart.length; i++){
+        const item = cart[i];
+        if(item.id == id){
+            item.quantity++;
+            break;
+        }
+    }
+
+    renderCartUI(cart);
+    setLocalStorage(cart,"CartItem");
+    renderTotalPrice();;
 }
