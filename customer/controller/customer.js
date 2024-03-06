@@ -1,4 +1,5 @@
 const api = new Api();
+const gioHang = new Cart();
 
 function getEle(id) {
     return document.getElementById(id);
@@ -138,22 +139,7 @@ function addCartItem(id) {
             const cartItem = new CartItem(data.id, data.name, data.img, data.price, 1);
             
             // Thêm sản phầm vào cart
-            if (cart.length === 0) {
-                cart.push(cartItem);
-            } else {
-                let exist = false;
-                for (let i = 0; i < cart.length; i++) {
-                    const item = cart[i];
-                    if (item.id === cartItem.id) {
-                        exist = true;
-                        item.quantity++;
-                        break;
-                    }
-                }
-                if(exist == false){
-                    cart.push(cartItem);
-                }
-            }
+            cart = gioHang.addItem(cart,cartItem);
 
             // Tính tổng giá tiền
             let total = 0;
