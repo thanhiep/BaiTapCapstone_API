@@ -147,7 +147,6 @@ function addCartItem(id) {
 
             // set local storage cho cart
             setLocalStorage(cart,"CartItem");
-            setLocalStorage(total,"total")
 
             // hiển thị UI
             getEle("totalPrice").innerHTML = `$${total}`;
