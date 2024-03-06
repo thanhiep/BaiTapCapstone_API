@@ -1,0 +1,5 @@
+#cartModal{
+    #cartModalLabel{
+        @include styleText($fs-9,$fw-3,$color-blue-1);
+    }
+}

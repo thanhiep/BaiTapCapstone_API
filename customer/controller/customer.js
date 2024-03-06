@@ -20,7 +20,7 @@ function getListProduct() {
         .then(function (result) {
             const data = result.data;
             getEle("loader").style.display = "none";
-
+            setLocalStorage(data);
             for (i = 0; i < data.length; i++) {
                 const product = data[i]
                 if (product.type == "iphone") {
@@ -51,6 +51,21 @@ function getListProduct() {
 
 getListProduct()
 
+
+function setLocalStorage(arr) {
+    const arrString = JSON.stringify(arr);
+    localStorage.setItem("DSSP", arrString);
+  }
+
+  function getLocalStorage(name,arr) {
+    if (!localStorage.getItem(name)) return;
+   
+    const arrString = localStorage.getItem(name);
+   
+    const arrJSON = JSON.parse(arrString);
+    
+    arr = arrJSON;
+  }
 
 
 /**
@@ -92,7 +107,7 @@ function renderUI(data) {
                         <i class="fa fa-star"></i>
                     </div>
                     <div>
-                        <button class="btnAddToCart"><i class="fa-solid fa-cart-plus"></i></button>
+                        <button onclick="addCartItem(${product.id})" class="btnAddToCart"><i class="fa-solid fa-cart-plus"></i></button>
                     </div>
                 </div>
     
@@ -103,4 +118,50 @@ function renderUI(data) {
     });
 
     getEle("showProduct").innerHTML = content;
+}
+
+
+/**
+ * add item to cart
+ */
+let cart = [];
+function addCartItem(id){
+    const promise = api.getProductById(id);
+    promise
+        .then(function(result){
+            const data = (result.data);
+            const cartItem = new CartItem(data.id,data.name,data.img,data.price)
+            cart.push(cartItem)
+            renderCartUI(cart);
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+}
+
+/**
+ * render UI cart
+ */
+function renderCartUI(cart){
+    let content = "";
+    cart.forEach(function(item,index){
+        content += `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${item.name}</td>
+                <td> <img src="${item.img} "alt="..." width="30"></td>
+                <td>$${item.price}</td>
+                <td>
+                    <button class="btnCartItem" type="button">
+                        <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span></span>
+                    <button class="btnCartItem" type="button">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </td>
+            </tr>
+        `
+    })
+    getEle("tblCartBody").innerHTML = content;
 }

@@ -49,3 +49,18 @@
     }
 
 }
+
+.btnCartItem{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 10px;
+    transition: 0.2s;
+    @include styleButton($color-white-1,0,0,1px solid $color-blue-1,50%,0);
+
+    &:hover{
+        @include styleButtonHover($color-blue-2,$color-white-1,$color-white-1);
+    }
+}
