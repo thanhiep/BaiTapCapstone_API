@@ -20,7 +20,7 @@ function getListProduct() {
         .then(function (result) {
             const data = result.data;
             getEle("loader").style.display = "none";
-            setLocalStorage(data);
+            setLocalStorage(data,"DSSP");
             for (i = 0; i < data.length; i++) {
                 const product = data[i]
                 if (product.type == "iphone") {
@@ -51,21 +51,26 @@ function getListProduct() {
 
 getListProduct()
 
-
-function setLocalStorage(arr) {
+/**
+ * set local storage
+ */
+function setLocalStorage(arr,name) {
     const arrString = JSON.stringify(arr);
-    localStorage.setItem("DSSP", arrString);
-  }
+    localStorage.setItem(name, arrString);
+}
 
-  function getLocalStorage(name,arr) {
+/**
+ * get local storage
+ */
+function getLocalStorage(name) {
     if (!localStorage.getItem(name)) return;
-   
+
     const arrString = localStorage.getItem(name);
-   
+
     const arrJSON = JSON.parse(arrString);
-    
-    arr = arrJSON;
-  }
+
+    return arrJSON;
+}
 
 
 /**
@@ -125,26 +130,58 @@ function renderUI(data) {
  * add item to cart
  */
 let cart = [];
-function addCartItem(id){
+function addCartItem(id) {
     const promise = api.getProductById(id);
     promise
-        .then(function(result){
-            const data = (result.data);
-            const cartItem = new CartItem(data.id,data.name,data.img,data.price)
-            cart.push(cartItem)
+        .then(function (result) {
+            const data = result.data;
+            const cartItem = new CartItem(data.id, data.name, data.img, data.price, 1);
+            
+            // Thêm sản phầm vào cart
+            if (cart.length === 0) {
+                cart.push(cartItem);
+            } else {
+                let exist = false;
+                for (let i = 0; i < cart.length; i++) {
+                    const item = cart[i];
+                    if (item.id === cartItem.id) {
+                        exist = true;
+                        item.quantity++;
+                        break;
+                    }
+                }
+                if(exist == false){
+                    cart.push(cartItem);
+                }
+            }
+
+            // Tính tổng giá tiền
+            let total = 0;
+            cart.forEach(function(item){
+                total += item.price * item.quantity;
+            })
+
+            // set local storage cho cart
+            setLocalStorage(cart,"CartItem");
+
+            // hiển thị UI
+            getEle("totalPrice").innerHTML = `$${total}`;
             renderCartUI(cart);
         })
-        .catch(function(error){
+        .catch(function (error) {
             console.log(error)
         })
 }
 
+cart = getLocalStorage("CartItem");
+renderCartUI(cart);
+
 /**
  * render UI cart
  */
-function renderCartUI(cart){
+function renderCartUI(cart) {
     let content = "";
-    cart.forEach(function(item,index){
+    cart.forEach(function (item, index) {
         content += `
             <tr>
                 <td>${index + 1}</td>
@@ -155,7 +192,7 @@ function renderCartUI(cart){
                     <button class="btnCartItem" type="button">
                         <i class="fa-solid fa-minus"></i>
                     </button>
-                    <span></span>
+                    <span>${item.quantity}</span>
                     <button class="btnCartItem" type="button">
                         <i class="fa-solid fa-plus"></i>
                     </button>

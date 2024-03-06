@@ -282,9 +282,10 @@ header #phoneNavbar .btnCart {
   text-align: center;
   font-size: 10px;
   transition: 0.2s;
-  background-color: #f5f9fe;
+  margin: 0 10px;
+  background-color: #dddada;
   padding: 0 0;
-  border: 1px solid #1d365e;
+  border: none;
   border-radius: 50%;
   letter-spacing: 0;
 }
@@ -342,4 +343,12 @@ header #phoneNavbar .btnCart {
   font-size: 24px;
   font-weight: 700;
   color: #1d365e;
+}
+#cartModal p {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1d365e;
+}
+#cartModal p span {
+  color: #2a73dd;
 }/*# sourceMappingURL=main.css.map */

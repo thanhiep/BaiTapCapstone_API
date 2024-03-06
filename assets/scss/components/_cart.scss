@@ -2,4 +2,10 @@
     #cartModalLabel{
         @include styleText($fs-9,$fw-3,$color-blue-1);
     }
+    p{
+        @include styleText($fs-5,$fw-2,$color-blue-1);
+        span{
+            color: $color-blue-2;
+        }
+    }
 }
