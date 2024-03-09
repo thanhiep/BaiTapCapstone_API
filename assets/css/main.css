@@ -213,6 +213,7 @@ header #phoneNavbar .btnCart {
   background-color: #2a73dd;
   border: transparent;
   transition: 0.2s;
+  position: relative;
 }
 #btnCart:hover {
   color: #f9d412;
@@ -274,6 +275,36 @@ header #phoneNavbar .btnCart {
   color: #2196f3;
 }
 
+.btnCartItem {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 10px;
+  transition: 0.2s;
+  margin: 0 10px;
+  background-color: #dddada;
+  padding: 0 0;
+  border: none;
+  border-radius: 50%;
+  letter-spacing: 0;
+}
+.btnCartItem:hover {
+  background: #2a73dd;
+  border-color: #f5f9fe;
+  color: #f5f9fe;
+}
+
+#btnDeleteItem {
+  border-radius: 50%;
+}
+#btnDeleteItem:hover {
+  background: white;
+  border-color: red;
+  color: red;
+}
+
 .cardPhone {
   box-shadow: 6px 6px 12px #e2ebfc, -6px -6px 12px #fff;
   background-color: #f5f9fe;
@@ -317,4 +348,32 @@ header #phoneNavbar .btnCart {
   100% {
     transform: rotate(360deg);
   }
+}
+#cartModal #cartModalLabel {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1d365e;
+}
+#cartModal p {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1d365e;
+}
+#cartModal p span {
+  color: #2a73dd;
+}
+
+#cartNoti {
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: red;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  border-radius: 50%;
 }/*# sourceMappingURL=main.css.map */

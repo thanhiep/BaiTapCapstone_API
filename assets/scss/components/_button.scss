@@ -5,6 +5,7 @@
     background-color: $color-blue-2;
     border: transparent;
     transition: 0.2s;
+    position: relative;
 
     &:hover {
         color: $color-yellow-1;
@@ -48,4 +49,27 @@
         @include styleButtonHover($color-white-3, $color-blue-4, $color-blue-4);
     }
 
+}
+
+.btnCartItem{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 10px;
+    transition: 0.2s;
+    margin: 0 10px;
+    @include styleButton($color-white-4,0,0,none,50%,0);
+
+    &:hover{
+        @include styleButtonHover($color-blue-2,$color-white-1,$color-white-1);
+    }
+}
+
+#btnDeleteItem{
+    border-radius: 50%;
+    &:hover{
+        @include styleButtonHover(white,red,red);
+    }
 }
