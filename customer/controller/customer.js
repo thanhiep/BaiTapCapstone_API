@@ -141,17 +141,13 @@ function addCartItem(id) {
             // Thêm sản phầm vào cart
             cart = gioHang.addItem(cart, cartItem);
 
-            // Tính tổng giá tiền
-            let total = 0;
-            total = gioHang.totalPrice(cart, total);
-
             // set local storage cho cart
             setLocalStorage(cart, "CartItem");
 
             // hiển thị UI
-            getEle("totalPrice").innerHTML = `$${total}`;
             renderCartUI(cart);
             cartNoti();
+            renderTotalPrice();
         })
         .catch(function (error) {
             console.log(error)
