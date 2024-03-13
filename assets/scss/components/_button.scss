@@ -47,6 +47,7 @@
 
     &:hover {
         @include styleButtonHover($color-white-3, $color-blue-4, $color-blue-4);
+        transform: translateY(-5px);
     }
 
 }

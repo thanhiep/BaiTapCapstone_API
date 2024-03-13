@@ -273,6 +273,7 @@ header #phoneNavbar .btnCart {
   background: #fff;
   border-color: #2196f3;
   color: #2196f3;
+  transform: translateY(-5px);
 }
 
 .btnCartItem {
