@@ -44,6 +44,28 @@ function getListProduct() {
                     renderUI(data);
                     break;
             }
+
+            // cập nhật lại giỏ hàng khi thay đổi sản phẩm bên trang admin
+            let notExist = true;
+            for (let i = 0; i < cart.length; i++) {
+                const item = cart[i];
+                for (let j = 0; j < data.length; j++) {
+                    const product = data[j];
+                    if (item.id == product.id) {
+                        notExist = false;
+                        break;
+                    } else {
+                        notExist = true;
+                    }
+                }
+                if (notExist) {
+                    cart.splice(i, 1)
+                }
+            }
+            setLocalStorage(cart, "CartItem");
+            renderCartUI(cart);
+            cartNoti();
+            renderTotalPrice();
         })
         .catch(function (error) {
             console.log(error)

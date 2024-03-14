@@ -18,4 +18,27 @@ function Api(){
         return promise
     }
 
+    this.addProduct = function(product){
+        return axios({
+            url: "https://65d8a725c96fbb24c1bc05cb.mockapi.io/api/ProductCapstone",
+            method: "POST",
+            data: product,
+        });
+    }
+
+    this.deleteProduct = function(id){
+        return axios ({
+            url: `https://65d8a725c96fbb24c1bc05cb.mockapi.io/api/ProductCapstone/${id}`,
+            method: "DELETE",
+        })
+    }
+
+    this.updateProduct = function (product){
+        return axios({
+            url: `https://65d8a725c96fbb24c1bc05cb.mockapi.io/api/ProductCapstone/${product.id}`,
+            method: "PUT",
+            data: product,
+        });
+    }
+
 }

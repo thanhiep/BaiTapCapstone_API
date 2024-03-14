@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- BS 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./../../assets/css/main.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav class="phoneNav container navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">Phone Store</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#phoneNavbar"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fa fa-bars"></i>
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="phoneNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./../../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./../../customer/view/customer.html" target="_blank">Store Page</a>
+                    </li>
+                    <li class="nav-item  active">
+                        <a class="nav-link" href="#">Admin Page</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container listProduct">
+        <h1>DANH SÁCH SẢN PHẨM</h1>
+        <div class="row">
+            <div class="col-md-8">
+                <!--BUTTON THÊM MỚI -->
+                <button id="btnThemSP" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                    <i class="fa fa-plus mr-1"></i>
+                    Thêm Sản Phẩm
+                </button>
+            </div>
+            <div class="col-md-4">
+                <!--TÌM KIẾM -->
+                <div class="input-group mb-3">
+                    <input type="text" id="txtSearch" class="form-control" placeholder="Nhập từ khóa" aria-label="Recipient's username"
+                        aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2"><i class="fa fa-search"></i></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- TABLE SẢN PHẨM -->
+        <div class="tblSanPham" id="tblSanPham">
+            <table class="table table-bordered">
+                <thead>
+                    <th>STT</th>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Loại</th>
+                    <th>Giá</th>
+                    <th>Hình Ảnh</th>
+                    <th>Mô Tả</th>
+                    <th>Action</th>
+                </thead>
+                <tbody id="tblDanhSachSP"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modalHeader">Modal Heading</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Tên Sản Phẩm</label>
+                        <input id="tenSP" class="form-control" placeholder="Nhập vào tên sản phẩm" />
+                    </div>
+                    <div class="form-group">
+                        <label>Loại</label>
+                        <select class="custom-select" id="selectType" aria-label="Example select with button addon">
+                            <option>Chọn Loại</option>
+                            <option value="iphone">iphone</option>
+                            <option value="Samsung">Samsung</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Giá</label>
+                        <input id="giaSP" class="form-control" placeholder="Nhập vào giá" />
+                    </div>
+                    <div class="form-group">
+                        <label>Screen</label>
+                        <input id="screen" class="form-control" placeholder="Nhập screen" />
+                    </div>
+                    <div class="form-group">
+                        <label>Front Camera</label>
+                        <input id="frontCam" class="form-control" placeholder="Nhập front camera" />
+                    </div>
+                    <div class="form-group">
+                        <label>Back Camera</label>
+                        <input id="backCam" class="form-control" placeholder="Nhập back camera" />
+                    </div>
+                    <div class="form-group">
+                        <label>Hình Ảnh</label>
+                        <input id="hinhSP" class="form-control" placeholder="Nhập vào hình sản phẩm" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Mô Tả</label>
+                        <textarea class="form-control" name="" id="moTa" rows="5"></textarea>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer" id="modalFooter"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BS 4 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+    <!-- AXIOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"
+        integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="./../services/api.js"></script>
+    <script src="./../model/product.js"></script>
+    <script src="./../controller/admin.js"></script>
+</body>
+
+</html>

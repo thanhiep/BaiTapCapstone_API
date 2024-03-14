@@ -7,5 +7,5 @@ function Product(_id, _name, _price,_screen, _frontCamera, _backCamera,_img, _de
     this.backCamera = _backCamera;
     this.img = _img;
     this.desc = _desc;
-    this.type = _type
+    this.type = _type;
 }

@@ -71,6 +71,15 @@ html, body {
     height: 50vh;
   }
 }
+.listProduct {
+  padding-top: 120px;
+}
+.listProduct h1 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
 header {
   background-color: #2a73dd;
   box-shadow: 0 2px 4px #1d365e;
