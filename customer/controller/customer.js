@@ -6,6 +6,9 @@ function getEle(id) {
 };
 
 let cart = [];
+if (!localStorage.getItem("CartItem")){
+    setLocalStorage(cart, "CartItem");
+}
 /**
  * get list product
  */
@@ -20,27 +23,26 @@ function getListProduct() {
             getEle("loader").style.display = "none";
             renderUI(data);
             setLocalStorage(data, "DSSP");
-
             // cập nhật lại giỏ hàng khi xóa sản phẩm bên trang admin
             let notExist = true;
-            if(cart){
-                for (let i = 0; i < cart.length; i++) {
-                    const item = cart[i];
-                    for (let j = 0; j < data.length; j++) {
-                        const product = data[j];
-                        if (item.id == product.id) {
-                            notExist = false;
-                            break;
-                        } else {
-                            notExist = true;
-                        }
-                    }
-                    if (notExist) {
-                        cart.splice(i, 1)
+
+            for (let i = 0; i < cart.length; i++) {
+                const item = cart[i];
+                for (let j = 0; j < data.length; j++) {
+                    const product = data[j];
+                    if (item.id == product.id) {
+                        notExist = false;
+                        break;
+                    } else {
+                        notExist = true;
                     }
                 }
+                if (notExist) {
+                    cart.splice(i, 1)
+                }
             }
-            
+
+
             setLocalStorage(cart, "CartItem");
             renderCartUI(cart);
             cartNoti();
@@ -155,17 +157,16 @@ function addCartItem(id) {
 }
 
 // lấy cart từ local storage
-cart = getLocalStorage("CartItem");
-renderCartUI(cart);
+    cart = getLocalStorage("CartItem");
+    renderCartUI(cart)
+
 
 // cart noti
 function totalQuantity() {
     let quantity = 0;
-    if(cart){
         cart.forEach(function (item) {
             quantity += item.quantity
         })
-    }
     return quantity;
 }
 function cartNoti() {
@@ -192,11 +193,10 @@ renderTotalPrice();
 /**
  * render UI cart
  */
-function renderCartUI(cart) {
+function renderCartUI(list) {
     let content = "";
-    if(cart){
-        cart.forEach(function (item, index) {
-            content += `
+    list.forEach(function (item, index) {
+        content += `
                 <tr>
                     <td>${index + 1}</td>
                     <td>${item.name}</td>
@@ -218,10 +218,10 @@ function renderCartUI(cart) {
                     </td>
                 </tr>
             `
-        })
-    }
+    })
+
     getEle("tblCartBody").innerHTML = content;
-   
+
 }
 
 /**
