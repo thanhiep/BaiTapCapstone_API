@@ -23,21 +23,24 @@ function getListProduct() {
 
             // cập nhật lại giỏ hàng khi xóa sản phẩm bên trang admin
             let notExist = true;
-            for (let i = 0; i < cart.length; i++) {
-                const item = cart[i];
-                for (let j = 0; j < data.length; j++) {
-                    const product = data[j];
-                    if (item.id == product.id) {
-                        notExist = false;
-                        break;
-                    } else {
-                        notExist = true;
+            if(cart){
+                for (let i = 0; i < cart.length; i++) {
+                    const item = cart[i];
+                    for (let j = 0; j < data.length; j++) {
+                        const product = data[j];
+                        if (item.id == product.id) {
+                            notExist = false;
+                            break;
+                        } else {
+                            notExist = true;
+                        }
+                    }
+                    if (notExist) {
+                        cart.splice(i, 1)
                     }
                 }
-                if (notExist) {
-                    cart.splice(i, 1)
-                }
             }
+            
             setLocalStorage(cart, "CartItem");
             renderCartUI(cart);
             cartNoti();
@@ -158,9 +161,11 @@ renderCartUI(cart);
 // cart noti
 function totalQuantity() {
     let quantity = 0;
-    cart.forEach(function (item) {
-        quantity += item.quantity
-    })
+    if(cart){
+        cart.forEach(function (item) {
+            quantity += item.quantity
+        })
+    }
     return quantity;
 }
 function cartNoti() {
