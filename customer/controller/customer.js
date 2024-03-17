@@ -189,31 +189,34 @@ renderTotalPrice();
  */
 function renderCartUI(cart) {
     let content = "";
-    cart.forEach(function (item, index) {
-        content += `
-            <tr>
-                <td>${index + 1}</td>
-                <td>${item.name}</td>
-                <td> <img src="${item.img} "alt="..." width="30"></td>
-                <td>$${item.price}</td>
-                <td>
-                    <button onclick="giamSL(${index})" class="btnCartItem" type="button">
-                        <i class="fa-solid fa-minus"></i>
-                    </button>
-                    <span>${item.quantity}</span>
-                    <button onclick="tangSL(${index})" class="btnCartItem" type="button">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </td>
-                <td>
-                    <button onclick="deleteItem(${index})" id="btnDeleteItem" class="btn btn-danger">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </td>
-            </tr>
-        `
-    })
+    if(cart){
+        cart.forEach(function (item, index) {
+            content += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${item.name}</td>
+                    <td> <img src="${item.img} "alt="..." width="30"></td>
+                    <td>$${item.price}</td>
+                    <td>
+                        <button onclick="giamSL(${index})" class="btnCartItem" type="button">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <span>${item.quantity}</span>
+                        <button onclick="tangSL(${index})" class="btnCartItem" type="button">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="deleteItem(${index})" id="btnDeleteItem" class="btn btn-danger">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </td>
+                </tr>
+            `
+        })
+    }
     getEle("tblCartBody").innerHTML = content;
+   
 }
 
 /**
