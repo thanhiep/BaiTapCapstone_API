@@ -10,10 +10,6 @@ function getEle(id) {
  */
 
 function getListProduct() {
-    const type = getEle("inputType").value;
-    let apple = [];
-    let samsung = [];
-
     getEle("loader").style.display = "block";
 
     const promise = api.fetchData();
@@ -21,29 +17,30 @@ function getListProduct() {
         .then(function (result) {
             const data = result.data;
             getEle("loader").style.display = "none";
+            renderUI(data);
             setLocalStorage(data, "DSSP");
-            for (i = 0; i < data.length; i++) {
-                const product = data[i]
-                if (product.type == "iphone") {
-                    apple.push(product)
-                } else if (product.type == "Samsung") {
-                    samsung.push(product)
+
+            // cập nhật lại giỏ hàng khi xóa sản phẩm bên trang admin
+            let notExist = true;
+            for (let i = 0; i < cart.length; i++) {
+                const item = cart[i];
+                for (let j = 0; j < data.length; j++) {
+                    const product = data[j];
+                    if (item.id == product.id) {
+                        notExist = false;
+                        break;
+                    } else {
+                        notExist = true;
+                    }
+                }
+                if (notExist) {
+                    cart.splice(i, 1)
                 }
             }
-
-            switch (type) {
-                case "Apple":
-                    renderUI(apple);
-                    break;
-
-                case "Samsung":
-                    renderUI(samsung);
-                    break;
-
-                default:
-                    renderUI(data);
-                    break;
-            }
+            setLocalStorage(cart, "CartItem");
+            renderCartUI(cart);
+            cartNoti();
+            renderTotalPrice();
         })
         .catch(function (error) {
             console.log(error)
@@ -339,3 +336,26 @@ function purchase() {
     renderTotalPrice();
     cartNoti();
 }
+
+/**
+ * select type
+ */
+getEle("inputType").addEventListener("change", function () {
+    const type = getEle("inputType").value;
+    api.fetchData()
+        .then(function (result) {
+            const listPhone = result.data
+            let listFilter = [];
+            if (type == "All Brands") {
+                listFilter = listPhone;
+            } else {
+                listFilter = listPhone.filter(function (phone) {
+                    return phone.type === type;
+                })
+            }
+            renderUI(listFilter);
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+})
