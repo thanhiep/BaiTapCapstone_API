@@ -5,6 +5,7 @@ function getEle(id) {
     return document.getElementById(id);
 };
 
+let cart = [];
 /**
  * get list product
  */
@@ -127,7 +128,6 @@ function renderUI(data) {
 /**
  * add item to cart
  */
-let cart = [];
 function addCartItem(id) {
     const promise = api.getProductById(id);
     promise
